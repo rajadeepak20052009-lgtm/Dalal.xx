@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Redirecting...</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(180deg, #0b1020 0%, #161b33 45%, #2a1246 100%);
+      color: #fff;
+      padding: 20px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 420px;
+      background: rgba(22, 26, 51, 0.88);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      padding: 28px 22px;
+      text-align: center;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+      backdrop-filter: blur(10px);
+    }
+
+    .logo {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto 14px;
+      border: 3px solid rgba(255,255,255,0.12);
+    }
+
+    h1 {
+      font-size: 30px;
+      margin-bottom: 12px;
+      color: #c06bff;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #cfd3e8;
+      margin-bottom: 16px;
+    }
+
+    .domain-box {
+      margin: 18px auto;
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      font-size: 18px;
+      font-weight: 700;
+      color: #ffffff;
+      word-break: break-word;
+    }
+
+    .progress-wrap {
+      width: 100%;
+      height: 8px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 999px;
+      overflow: hidden;
+      margin: 18px 0 10px;
+    }
+
+    .progress {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, #8a2be2, #ff3f9a);
+      transform-origin: left;
+      animation: shrink 5s linear forwards;
+    }
+
+    @keyframes shrink {
+      from { transform: scaleX(1); }
+      to { transform: scaleX(0); }
+    }
+
+    .count {
+      font-size: 15px;
+      color: #9ea6cb;
+      margin-bottom: 18px;
+    }
+
+    .btn {
+      display: inline-block;
+      width: 100%;
+      text-decoration: none;
+      text-align: center;
+      padding: 15px 18px;
+      border-radius: 14px;
+      background: linear-gradient(90deg, #8a2be2, #ff3f9a);
+      color: #fff;
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .small {
+      margin-top: 16px;
+      font-size: 12px;
+      color: #8b92b8;
+      word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img id="topImage" src="https://i.ibb.co/nN5BJd4D/WA-1783331007770.jpg" alt="Logo" class="logo" />
+    <h1> YOUR DALAL!</h1>
+    <p>☠️</p>
+
+    <div class="domain-box">YOURDALAL</div>
+
+    <div class="progress-wrap">
+      <div class="progress"></div>
+    </div>
+
+    <div class="count">Redirecting in <span id="sec">5</span> seconds...</div>
+
+    <a class="btn" id="goBtn" href="https://dalalxbot.netlify.app/"> long bio →</a>
+
+    <div class="small">If you are not redirected automatically, click the button above.</div>
+  </div>
+
+  <script>
+    const TARGET_URL = "https://dalalxbot.netlify.app/";
+    const topImage = document.getElementById("topImage");
+    const secEl = document.getElementById("sec");
+    const goBtn = document.getElementById("goBtn");
+
+    let seconds = 5;
+    const timer = setInterval(() => {
+      seconds--;
+      secEl.textContent = seconds;
+      if (seconds <= 0) {
+        clearInterval(timer);
+        window.location.replace(TARGET_URL);
+      }
+    }, 1000);
+
+    goBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      window.location.href = TARGET_URL;
+    });
+  </script>
+</body>
+</html>
